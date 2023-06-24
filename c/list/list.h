@@ -1,12 +1,12 @@
-typedef struct list
-{
-  char *rootArr;
-  int lastIndexBeeingUsed;
-  int totalSize;
-  int updateSizeFactor;
-}List;
+typedef struct list {
+    char *rootArr;
+    int lastIndexBeeingUsed;
+    int totalSize;
+    int updateSizeFactor;
 
-//TODO add full generic declarations
+} List;
+
+// TODO add full generic declarations
 List *createList(int initialListSize, float updateSizeFactor);
 
 List *addElementToList(List *list, int element);
