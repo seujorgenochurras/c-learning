@@ -1,5 +1,10 @@
 {
   "files.associations": {
-    "typeinfo.h": "c"
+    "typeinfo.h": "c",
+    "stdio.h": "c",
+    "cstdio": "c",
+    "stdlib.h": "c",
+    "utils.h": "c",
+    "list.h": "c"
   }
 }
