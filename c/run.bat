@@ -1,2 +1,3 @@
-gcc hello-world.c
+gcc %*
 .\a.exe
+del .\a.exe
