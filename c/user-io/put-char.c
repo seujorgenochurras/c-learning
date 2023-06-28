@@ -1,62 +1,52 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <time.h>
-#include "../utils/utils.h"
+
 #include "../list/list.h"
-int countCharsFromUser(char *charToRead)
-{
-  int charsFound = 0;
-  char currentChar;
-  while ((currentChar = getchar()) != EOF)
-  {
-    if (currentChar == *charToRead)
-    {
-      charsFound++;
+#include "../utils/utils.h"
+int countCharsFromUser(char *charToRead) {
+    int charsFound = 0;
+    char currentChar;
+    while ((currentChar = getchar()) != EOF) {
+        if (currentChar == *charToRead) {
+            charsFound++;
+        }
     }
-  }
-  return charsFound;
+    return charsFound;
 }
 
-void getASCIITableValues(int *from, int *to)
-{
-  for (int i = *from; i < *to; i++)
-  {
-    putchar(i);
-  }
+void getASCIITableValues(int *from, int *to) {
+    for (int i = *from; i < *to; i++) {
+        putchar(i);
+    }
 }
-
-char *getTextFromUser(int *)
-{
-  char currentChar;
-  while ((currentChar = getchar()) != EOF)
-  {
-  }
+List* getTextFromUser() {
+    List *userChars = createList(10, 1);
+    char currentChar;
+    while ((currentChar = getchar()) != '!') {
+        addElementToList(userChars, currentChar);
+    }
+    return userChars;
 }
-
+void removeTabsFromChars(List *userChars) {
+    for (int i = 0; i < userChars->lastIndexBeeingUsed; i++) {
+        if (userChars->rootArr[i] == '\t') {
+            userChars->rootArr[i] = '\\';
+            userChars->rootArr[++i] = 't';
+        }
+    }
+}
 #define typefo(T) printTypeOf(typeOf(T))
-void printTypeOf(Type type)
-{
-  printf("%d", type);
+void printTypeOf(Type type) {
+    printf("%d", type);
 }
 
-int main()
-{
-  float startTime = (float)clock() / CLOCKS_PER_SEC;
-
-  List *list = createList(222, 1);
-  for (int i = 0; i < 120000; i++) {
-    for (int j = 65; j < 122; j++) {
-      addElementToList(list, j);
+int main() {
+    List* userText = getTextFromUser();
+    removeTabsFromChars(userText);
+    for (int i = 0; i < userText->lastIndexBeeingUsed; i++){
+        printf("%c", userText->rootArr[i]);
     }
-  }
-  printf("list size is %d\n", list->totalSize);
+    return 0;
+ }
 
-  freeList(list);
 
-  float endTime = (float)clock() / CLOCKS_PER_SEC;
-
-  float timeElapsed = endTime - startTime;
-
-  printf("took %f", timeElapsed);
-  return 0;
-}
