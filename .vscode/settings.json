@@ -5,6 +5,7 @@
     "cstdio": "c",
     "stdlib.h": "c",
     "utils.h": "c",
-    "list.h": "c"
+    "list.h": "c",
+    "io_github_seujorgenochurras_main_testclass.h": "c"
   }
 }
