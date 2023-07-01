@@ -5,8 +5,10 @@
             "includePath": [
                 "${workspaceFolder}/**",
                 "${workspaceFolder}/c/utils",
+                "${workspaceFolder}/java-c-implementation/src/main/java/io/github/seujorgenochurras",
                 "${workspaceFolder}/c/user-io",
-                "${workspaceFolder}/c/utils"
+                "${workspaceFolder}/c/utils",
+                "/Program Files/Java/jdk-19/include/**"
             ],
             "defines": [
                 "_DEBUG",
@@ -16,7 +18,8 @@
             "compilerPath": "C:/msys64/mingw64/bin/gcc.exe",
             "cStandard": "c23",
             "cppStandard": "c++23",
-            "intelliSenseMode": "windows-gcc-x86"
+            "intelliSenseMode": "windows-gcc-x86",
+            "compilerArgs": []
         }
     ],
     "version": 4

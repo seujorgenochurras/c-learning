@@ -13,8 +13,8 @@ char* reverse(char charArr[], int arrSize) {
 
 int main() {
     char mystr[] = "aula vaga";
-    char* reversedStr = reverse(mystr, 10);
-    printf("%s", reversedStr);
+    printf("%c", mystr[0]);
+    puts("echo oi mae");
 
     return 0;
 }
