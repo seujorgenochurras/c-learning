@@ -6,6 +6,7 @@
     "stdlib.h": "c",
     "utils.h": "c",
     "list.h": "c",
-    "io_github_seujorgenochurras_main_testclass.h": "c"
+    "io_github_seujorgenochurras_main_testclass.h": "c",
+    "jni.h": "c"
   }
 }

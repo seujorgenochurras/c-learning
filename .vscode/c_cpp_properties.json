@@ -8,8 +8,10 @@
                 "${workspaceFolder}/java-c-implementation/src/main/java/io/github/seujorgenochurras",
                 "${workspaceFolder}/c/user-io",
                 "${workspaceFolder}/c/utils",
-                "/Program Files/Java/jdk-19/include/**"
+                "/Program Files/Java/jdk-19/include/**",
+                "C:/msys64/mingw64/include/c++/12.1.0/pstl"
             ],
+            //gcc -iC:/msys64/mingw64/include/c++/12.1.0/pstl
             "defines": [
                 "_DEBUG",
                 "UNICODE",
