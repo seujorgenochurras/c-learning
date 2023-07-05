@@ -1,36 +1,36 @@
-.PHONY: clean
-#Params: 1, file name
-define putIntoOut
-	${shell mkdir -p $(outDirName)}
-	gcc $(1) -o ${outDirName}/compiled;
-endef
+.PHONY: clean all run $(allObjectFolders)
+vpath %.c $(allCFolders)
+.DEFAULT_GOAL := all
 
-define putIntoObjects
-	${shell mkdir -p $(objectsDirName)}
-	gcc -c $(1) -o ${objectsDirName}/${subst .c,.o,${notdir $(1)}};
-endef
-# outDir := ${shell mkdir -p out}
-# objectsDir := ${shell mkdir -p ${outDir}/object}
-
-sourceFile = src
-
-allFiles := ${shell find ${sourceFile} -wholename "**.c*" -type f}
+includes := "/Program Files/Java/jdk-19/include/**" \
+"/msys64/mingw64/include/c++/12.1.0/pstl"
 
 outDirName = out
 objectsDirName = ${outDirName}/object
 
-all: ${outDirName}/compiled run
+srcFolder:= src
+allCFiles:= ${shell find $(srcFolder) -wholename "*.c" -type f}
+allObjectFiles:= $(addprefix $(objectsDirName)/,$(allCFiles:.c=.o))
 
-run: ${outDirName}/compiled
-	${outDirName}/compiled
+allObjectFolders := $(sort $(dir $(allObjectFiles)))
 
-${outDirName}/compiled: $(objectsDirName)/*.o
-	${call putIntoOut,$^}
+allCFolders:= ${shell find $(srcFolder) -type d}
 
-out/object/*.o: out/object/%.o : src/%.c
-	echo $@
-	${foreach file,$?,${call putIntoObjects,${file}}}
+$(outDirName)/compile: $(allObjectFiles)
+	gcc $^ $(addprefix -I,$(includes)) -o $(outDirName)/compile
+
+$(allObjectFiles): $(objectsDirName)/%.o: %.c 
+	@gcc -c $< -o ${objectsDirName}/$(^:.c=.o);
+
+
+all: $(allObjectFolders) $(outDirName)/compile $(allObjectFiles) 
+
+run: $(outDirName)/compile
+	@$(outDirName)/compile
 
 clean:
-	@rm *.o
+	@rm -rf out/
 
+$(allObjectFolders):
+	mkdir -p $(outDirName)
+	mkdir -p $(dir $(allObjectFiles))

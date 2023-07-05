@@ -1,5 +1,5 @@
 #include <stdio.h>
 
 int aowijd() {
-    return 2;
+    return 222222;
 }

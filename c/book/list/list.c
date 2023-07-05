@@ -3,7 +3,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-/***
+/**
  * update size factor should not be >1
  * trust me, it will fuck your memory
  */

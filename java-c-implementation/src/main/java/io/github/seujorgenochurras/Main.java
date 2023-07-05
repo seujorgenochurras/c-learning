@@ -5,7 +5,8 @@ public class Main {
       System.out.println("Hello world!");
       Integer a = 46;
       Integer b = 200;
-      new TestClass().getASCIITableValues(20, 20);
+      TestClass.getASCIITableValues(20, 20);
+
    }
 
 
@@ -14,7 +15,7 @@ public class Main {
       static{
          System.load("C:/Users/User/Desktop/projetos c/java-c-implementation/src/main/java/io/github/seujorgenochurras/fuckyeah.dll");
       }
-      public native void getASCIITableValues(Integer from, Integer to);
+      public static native void getASCIITableValues(Integer from, Integer to);
       native void printYes();
    }
 
