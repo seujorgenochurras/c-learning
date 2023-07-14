@@ -14,5 +14,6 @@ int main(){
 void animateLoading(){
     while(true){
         print("MeuPau");
+        
     }
 }
