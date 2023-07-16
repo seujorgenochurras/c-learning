@@ -7,6 +7,9 @@
     "utils.h": "c",
     "list.h": "c",
     "io_github_seujorgenochurras_main_testclass.h": "c",
-    "jni.h": "c"
+    "jni.h": "c",
+    "unistd.h": "c",
+    "loadingstage.h": "c",
+    "locale.h": "c"
   }
 }
